@@ -7,7 +7,7 @@
       <Diagram DiagramId="f4b7a0d7615e4d3d957609dfc288f507" Name="Diagram1">
         <EntityTypeShape EntityType="iss_webModel.sysdiagrams" Width="1.5" PointX="6.375" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="iss_webModel.tblMusteriler" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="iss_webModel.tblPaketler" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iss_webModel.tblPaketler" Width="1.5" PointX="0.875" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="iss_webModel.tblSatis" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="iss_webModel.FK_tblSatis_tblMusteriler" ManuallyRouted="false" />
         <AssociationConnector Association="iss_webModel.FK_tblSatis_tblPaketler" ManuallyRouted="false" />

@@ -23,6 +23,7 @@ namespace ISSControlProje.Models.Entity
         public int paketId { get; set; }
         public string paketAd { get; set; }
         public string paketFiyat { get; set; }
+        public string paketAciklamasi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblSatis> tblSatis { get; set; }
