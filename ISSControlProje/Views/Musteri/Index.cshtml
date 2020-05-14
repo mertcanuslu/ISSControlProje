@@ -1,0 +1,40 @@
+﻿@using ISSControlProje.Models.Entity
+@model List<tblMusteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PanelStyle.cshtml";
+}
+<h2>Müşteriler</h2>
+<a href="/Musteri/Ekle" class="btn btn-success">Yeni Müşteri Ekle</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">TC</th>
+            <th scope="col">AD</th>
+            <th scope="col">ADRES</th>
+            <th scope="col">TELEFON</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var musteri in Model)
+        {
+            <tr>
+                <th scope="row">@musteri.musteriId</th>
+                <td>@musteri.musteriTc</td>
+                <td>@musteri.musteriAd</td>
+                <td>@musteri.musteriAdres</td>
+                <td>@musteri.musteriTelefon</td>
+                <td>
+                    <a href="/Musteri/Sil/@musteri.musteriId" class="btn btn-danger">Müşteriyi Kaldır</a>
+                </td>
+                <td>
+                    <a href="/Musteri/Guncelle/@musteri.musteriId" class="btn btn-primary">Müşteriyi Güncelle</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

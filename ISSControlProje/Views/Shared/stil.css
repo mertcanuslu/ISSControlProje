@@ -1,0 +1,5 @@
+﻿.akordion-paket{
+    display: flex;
+    justify-content: space-between;
+    color: red !important;
+}

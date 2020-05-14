@@ -2,31 +2,29 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_PanelStyle.cshtml";
-    int sayac = 0;
 }
 
 <h2>Paketler</h2>
-
+<a class="btn btn-success btn-sm" href="/Paket/Ekle">Yeni Paket Ekle</a>
 <div class="accordion" id="accordionExample">
 
-    @foreach (var item in ViewBag.paketler)
+    @foreach (var paket in ViewBag.paketler)
     {
-        ++sayac; 
         <div class="card">
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#paket_@sayac" aria-expanded="false" aria-controls="paket@sayac">
-                        @item.paketAd
+                    <button class="btn btn-link collapsed akordion-paket" type="button" data-toggle="collapse" data-target="#paket_@paket.paketId" aria-expanded="false" aria-controls="paket@paket.paketId">
+                        @paket.paketAd <span>@paket.paketFiyat</span>  <a class="btn btn-sm btn-danger" href="/Paket/Sil/@paket.paketId">Sil</a><a class="btn btn-sm btn-default" href="/Paket/Guncelle/@paket.paketId">Güncelle</a>
                     </button>
                 </h2>
             </div>
-            <div id="paket_@sayac" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div id="paket_@paket.paketId" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                        @item.paketAciklamasi
+                        @paket.paketAciklamasi
                 </div>
             </div>
         </div>
-        
+    
     }
 
 
