@@ -25,11 +25,34 @@ namespace ISSControlProje.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [HttpGet]
+        public ActionResult Guncelle(int id)
+        {
+            var musteri = vt.tblMusteriler.Find(id); 
+            return View("Guncelle",musteri);
+        }
+
+        [HttpPost]
+        public ActionResult Guncelle(tblMusteriler mstr)
+        {
+            var musteri = vt.tblMusteriler.Find(mstr.musteriId);
+            musteri.musteriAd = mstr.musteriAd;
+            musteri.musteriAdres = mstr.musteriAdres;
+            musteri.musteriPaket = mstr.musteriPaket;
+            musteri.musteriTc = mstr.musteriTc;
+            musteri.musteriTelefon = mstr.musteriTelefon;
+            vt.SaveChanges();
+            return RedirectToAction("Index",mstr.musteriId);
+        }
+
+
         [HttpGet]
         public ActionResult Ekle()
         {
             return View();
         }
+
 
         [HttpPost]
         public ActionResult Ekle(tblMusteriler mstr)
