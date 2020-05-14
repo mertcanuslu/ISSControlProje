@@ -18,5 +18,19 @@ namespace ISSControlProje.Controllers
             ViewBag.paketler = db.tblPaketler.ToList();
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Ekle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Ekle(tblPaketler pkt)
+        {
+            db.tblPaketler.Add(pkt);
+            db.SaveChanges();
+            return View();
+        }
     }
 }
