@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4b7a0d7615e4d3d957609dfc288f507" Name="Diagram1">
+        <EntityTypeShape EntityType="iss_webModel.sysdiagrams" Width="1.5" PointX="6.375" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="iss_webModel.tblMusteriler" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="iss_webModel.tblPaketler" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iss_webModel.tblSatis" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="iss_webModel.FK_tblSatis_tblMusteriler" ManuallyRouted="false" />
+        <AssociationConnector Association="iss_webModel.FK_tblSatis_tblPaketler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
