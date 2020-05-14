@@ -32,5 +32,12 @@ namespace ISSControlProje.Controllers
             db.SaveChanges();
             return View();
         }
+
+        public ActionResult Sil(int id)
+        {
+            db.tblPaketler.Remove(db.tblPaketler.Find(id));
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

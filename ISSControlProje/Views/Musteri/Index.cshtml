@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_PanelStyle.cshtml";
+    iss_webEntities db = new iss_webEntities();
 }
 <h2>Müşteriler</h2>
 <a href="/Musteri/Ekle/" class="btn btn-success">Yeni Müşteri Ekle</a>
@@ -14,6 +15,7 @@
             <th scope="col">AD</th>
             <th scope="col">ADRES</th>
             <th scope="col">TELEFON</th>
+            <th scope="col">PAKET</th>
             <th>SİL</th>
             <th>GÜNCELLE</th>
         </tr>
@@ -27,6 +29,7 @@
                 <td>@musteri.musteriAd</td>
                 <td>@musteri.musteriAdres</td>
                 <td>@musteri.musteriTelefon</td>
+                <td>@db.tblPaketler.Where(p=>p.paketId==musteri.musteriPaket).FirstOrDefault().paketAd</td>
                 <td>
                     <a href="/Musteri/Sil/@musteri.musteriId" class="btn btn-danger">Müşteriyi Kaldır</a>
                 </td>
