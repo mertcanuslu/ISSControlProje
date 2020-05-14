@@ -16,5 +16,19 @@ namespace ISSControlProje.Controllers
         {
             return View(vt.tblMusteriler.ToList());
         }
+
+        [HttpGet]
+        public ActionResult Ekle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Ekle(tblMusteriler mstr)
+        {
+            vt.tblMusteriler.Add(mstr);
+            vt.SaveChanges();
+            return View();
+        }
     }
 }

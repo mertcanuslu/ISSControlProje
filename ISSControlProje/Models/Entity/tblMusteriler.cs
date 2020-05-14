@@ -14,19 +14,11 @@ namespace ISSControlProje.Models.Entity
     
     public partial class tblMusteriler
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblMusteriler()
-        {
-            this.tblSatis = new HashSet<tblSatis>();
-        }
-    
         public int musteriId { get; set; }
         public string musteriTc { get; set; }
         public string musteriAd { get; set; }
         public string musteriAdres { get; set; }
         public string musteriTelefon { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblSatis> tblSatis { get; set; }
+        public int musteriPaket { get; set; }
     }
 }

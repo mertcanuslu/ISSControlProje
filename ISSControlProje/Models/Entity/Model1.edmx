@@ -24,6 +24,7 @@
           <Property Name="musteriAd" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="musteriAdres" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="musteriTelefon" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="musteriPaket" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblPaketler">
           <Key>
@@ -34,52 +35,10 @@
           <Property Name="paketFiyat" Type="varchar" MaxLength="10" />
           <Property Name="paketAciklamasi" Type="text" />
         </EntityType>
-        <EntityType Name="tblSatis">
-          <Key>
-            <PropertyRef Name="satisId" />
-          </Key>
-          <Property Name="satisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="paket" Type="int" />
-          <Property Name="musteri" Type="int" />
-          <Property Name="taahut" Type="varchar" MaxLength="55" />
-        </EntityType>
-        <Association Name="FK_tblSatis_tblMusteriler">
-          <End Role="tblMusteriler" Type="Self.tblMusteriler" Multiplicity="0..1" />
-          <End Role="tblSatis" Type="Self.tblSatis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblMusteriler">
-              <PropertyRef Name="musteriId" />
-            </Principal>
-            <Dependent Role="tblSatis">
-              <PropertyRef Name="musteri" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblSatis_tblPaketler">
-          <End Role="tblPaketler" Type="Self.tblPaketler" Multiplicity="0..1" />
-          <End Role="tblSatis" Type="Self.tblSatis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblPaketler">
-              <PropertyRef Name="paketId" />
-            </Principal>
-            <Dependent Role="tblSatis">
-              <PropertyRef Name="paket" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="iss_webModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPaketler" EntityType="Self.tblPaketler" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblSatis" EntityType="Self.tblSatis" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_tblSatis_tblMusteriler" Association="Self.FK_tblSatis_tblMusteriler">
-            <End Role="tblMusteriler" EntitySet="tblMusteriler" />
-            <End Role="tblSatis" EntitySet="tblSatis" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblSatis_tblPaketler" Association="Self.FK_tblSatis_tblPaketler">
-            <End Role="tblPaketler" EntitySet="tblPaketler" />
-            <End Role="tblSatis" EntitySet="tblSatis" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -104,7 +63,7 @@
           <Property Name="musteriAd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="musteriAdres" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="musteriTelefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblSatis" Relationship="Self.FK_tblSatis_tblMusteriler" FromRole="tblMusteriler" ToRole="tblSatis" />
+          <Property Name="musteriPaket" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="tblPaketler">
           <Key>
@@ -113,58 +72,13 @@
           <Property Name="paketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="paketAd" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
           <Property Name="paketFiyat" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblSatis" Relationship="Self.FK_tblSatis_tblPaketler" FromRole="tblPaketler" ToRole="tblSatis" />
           <Property Name="paketAciklamasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="tblSatis">
-          <Key>
-            <PropertyRef Name="satisId" />
-          </Key>
-          <Property Name="satisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="paket" Type="Int32" />
-          <Property Name="musteri" Type="Int32" />
-          <Property Name="taahut" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblMusteriler" Relationship="Self.FK_tblSatis_tblMusteriler" FromRole="tblSatis" ToRole="tblMusteriler" />
-          <NavigationProperty Name="tblPaketler" Relationship="Self.FK_tblSatis_tblPaketler" FromRole="tblSatis" ToRole="tblPaketler" />
-        </EntityType>
-        <Association Name="FK_tblSatis_tblMusteriler">
-          <End Role="tblMusteriler" Type="Self.tblMusteriler" Multiplicity="0..1" />
-          <End Role="tblSatis" Type="Self.tblSatis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblMusteriler">
-              <PropertyRef Name="musteriId" />
-            </Principal>
-            <Dependent Role="tblSatis">
-              <PropertyRef Name="musteri" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblSatis_tblPaketler">
-          <End Role="tblPaketler" Type="Self.tblPaketler" Multiplicity="0..1" />
-          <End Role="tblSatis" Type="Self.tblSatis" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblPaketler">
-              <PropertyRef Name="paketId" />
-            </Principal>
-            <Dependent Role="tblSatis">
-              <PropertyRef Name="paket" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="iss_webEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" />
           <EntitySet Name="tblPaketler" EntityType="Self.tblPaketler" />
-          <EntitySet Name="tblSatis" EntityType="Self.tblSatis" />
-          <AssociationSet Name="FK_tblSatis_tblMusteriler" Association="Self.FK_tblSatis_tblMusteriler">
-            <End Role="tblMusteriler" EntitySet="tblMusteriler" />
-            <End Role="tblSatis" EntitySet="tblSatis" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblSatis_tblPaketler" Association="Self.FK_tblSatis_tblPaketler">
-            <End Role="tblPaketler" EntitySet="tblPaketler" />
-            <End Role="tblSatis" EntitySet="tblSatis" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -185,6 +99,7 @@
           <EntitySetMapping Name="tblMusteriler">
             <EntityTypeMapping TypeName="iss_webModel.tblMusteriler">
               <MappingFragment StoreEntitySet="tblMusteriler">
+                <ScalarProperty Name="musteriPaket" ColumnName="musteriPaket" />
                 <ScalarProperty Name="musteriId" ColumnName="musteriId" />
                 <ScalarProperty Name="musteriTc" ColumnName="musteriTc" />
                 <ScalarProperty Name="musteriAd" ColumnName="musteriAd" />
@@ -200,16 +115,6 @@
                 <ScalarProperty Name="paketId" ColumnName="paketId" />
                 <ScalarProperty Name="paketAd" ColumnName="paketAd" />
                 <ScalarProperty Name="paketFiyat" ColumnName="paketFiyat" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblSatis">
-            <EntityTypeMapping TypeName="iss_webModel.tblSatis">
-              <MappingFragment StoreEntitySet="tblSatis">
-                <ScalarProperty Name="satisId" ColumnName="satisId" />
-                <ScalarProperty Name="paket" ColumnName="paket" />
-                <ScalarProperty Name="musteri" ColumnName="musteri" />
-                <ScalarProperty Name="taahut" ColumnName="taahut" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
