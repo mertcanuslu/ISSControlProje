@@ -43,7 +43,7 @@ namespace ISSControlProje.Controllers
             musteri.musteriTc = mstr.musteriTc;
             musteri.musteriTelefon = mstr.musteriTelefon;
             vt.SaveChanges();
-            return RedirectToAction("Index",mstr.musteriId);
+            return RedirectToAction("Index");
         }
 
 

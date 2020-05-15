@@ -39,5 +39,23 @@ namespace ISSControlProje.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Guncelle(int id)
+        {
+            var paket = db.tblPaketler.Find(id);
+            return View("Guncelle", paket);
+        }
+
+        [HttpPost]
+        public ActionResult Guncelle(tblPaketler pkt)
+        {
+            var paket = db.tblPaketler.Find(pkt.paketId);
+            paket.paketAd = pkt.paketAd;
+            paket.paketFiyat = pkt.paketFiyat;
+            paket.paketAciklamasi = pkt.paketAciklamasi;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

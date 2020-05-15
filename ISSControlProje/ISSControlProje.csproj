@@ -393,6 +393,7 @@
     <Content Include="Views\Musteri\Ekle.cshtml" />
     <Content Include="Views\Paket\Ekle.cshtml" />
     <Content Include="Views\Musteri\Guncelle.cshtml" />
+    <Content Include="Views\Paket\Guncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
