@@ -1,0 +1,27 @@
+﻿* {
+    outline: none !important;
+    text-decoration:none !important;
+}
+.akordion-paket{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.akordion-paket a:first-child{
+    margin-right:2rem;
+}
+span.fiyat{
+    background:#067c13;
+    padding:.3rem 2rem;
+    color:#fff;
+    border-radius:1rem;
+    margin-right:2rem;
+    margin-left:auto;
+    font-size:1.3rem;
+}
+.butonlar{
+    display:flex;
+    align-items:center;
+}
+

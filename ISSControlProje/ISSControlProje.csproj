@@ -388,7 +388,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_PanelStyle.cshtml" />
     <Content Include="Views\Paket\Index.cshtml" />
-    <Content Include="Views\Shared\stil.css" />
+    <Content Include="Content\stil.css" />
     <Content Include="Views\Musteri\Index.cshtml" />
     <Content Include="Views\Musteri\Ekle.cshtml" />
     <Content Include="Views\Paket\Ekle.cshtml" />

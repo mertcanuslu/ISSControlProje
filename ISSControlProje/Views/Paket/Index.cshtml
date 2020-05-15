@@ -14,7 +14,11 @@
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed akordion-paket" type="button" data-toggle="collapse" data-target="#paket_@paket.paketId" aria-expanded="false" aria-controls="paket@paket.paketId">
-                        @paket.paketAd <span>@paket.paketFiyat</span>  <a class="btn btn-sm btn-danger" href="/Paket/Sil/@paket.paketId">Sil</a><a class="btn btn-sm btn-default" href="/Paket/Guncelle/@paket.paketId">Güncelle</a>
+                        @paket.paketAd <span class="fiyat">@paket.paketFiyat ₺</span>  
+
+                                       <div class="butonlar">
+                                           <a class="btn btn-sm btn-danger" href="/Paket/Sil/@paket.paketId">Sil</a><a class="btn btn-sm btn-default" href="/Paket/Guncelle/@paket.paketId">Güncelle</a>
+                                       </div>
                     </button>
                 </h2>
             </div>
