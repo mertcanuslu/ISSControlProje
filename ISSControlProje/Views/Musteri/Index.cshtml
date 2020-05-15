@@ -33,7 +33,16 @@
                 <td>@musteri.musteriAd</td>
                 <td>@musteri.musteriAdres</td>
                 <td>@musteri.musteriTelefon</td>
-                <td>@db.tblPaketler.Where(p => p.paketId == musteri.musteriPaket).FirstOrDefault().paketAd</td>
+                <td>
+                    @if (db.tblPaketler.Any(p => p.paketId == musteri.musteriPaket))
+                    {
+                        @db.tblPaketler.Where(p => p.paketId == musteri.musteriPaket).FirstOrDefault().paketAd;
+                    }
+                    else
+                    {
+                        @Html.Raw("Paket Artık Aktif Değil.");
+                    }
+                </td>
                 <td>
                     <a href="/Musteri/Sil/@musteri.musteriId" class="btn btn-danger">Müşteriyi Kaldır</a>
                 </td>
