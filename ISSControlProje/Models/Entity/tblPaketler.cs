@@ -11,14 +11,20 @@ namespace ISSControlProje.Models.Entity
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
     public partial class tblPaketler
     {
         public int paketId { get; set; }
+        [Required]
+        [StringLength(55)]
         public string paketAd { get; set; }
+        [Required]
+        [StringLength(10)]
         public string paketFiyat { get; set; }
         [AllowHtml]
+        [Required]
         public string paketAciklamasi { get; set; }
     }
 }

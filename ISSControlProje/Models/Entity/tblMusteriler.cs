@@ -11,14 +11,24 @@ namespace ISSControlProje.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblMusteriler
     {
         public int musteriId { get; set; }
+        [Required]
+        [StringLength(20)]
         public string musteriTc { get; set; }
+        [Required]
+        [StringLength(45)]
         public string musteriAd { get; set; }
+        [Required]
+        [StringLength(80)]
         public string musteriAdres { get; set; }
+        [Required]
+        [StringLength(15)]
         public string musteriTelefon { get; set; }
+        [Required]
         public int musteriPaket { get; set; }
     }
 }

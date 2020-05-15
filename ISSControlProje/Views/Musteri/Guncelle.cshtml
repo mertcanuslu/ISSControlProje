@@ -14,24 +14,24 @@
     <div class="form-group row">
         <label for="musteriTC" class="col-sm-2 col-form-label col-form-label-sm">TC Kimlik No</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control form-control-sm" id="musteriTC" name="musteriTC" value="@Model.musteriTc">
+            <input maxlength="11" required type="text" class="form-control form-control-sm" id="musteriTC" name="musteriTC" value="@Model.musteriTc">
         </div>
     </div>
     <div class="form-group row">
         <label for="musteriAD" class="col-sm-2 col-form-label col-form-label-sm">Ad Soyad</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control form-control-sm" id="musteriAD" name="musteriAd" value="@Model.musteriAd">
+            <input  maxlength="45" required type="text" class="form-control form-control-sm" id="musteriAD" name="musteriAd" value="@Model.musteriAd">
         </div>
     </div>
     <div class="form-group row">
         <label for="musteriTEL" class="col-sm-2 col-form-label col-form-label-sm">Telefon</label>
         <div class="col-sm-10">
-            <input type="tel" class="form-control form-control-sm" id="musteriTEL" name="musteriTelefon" value="@Model.musteriTelefon">
+            <input  maxlength="15" required type="tel" class="form-control form-control-sm" id="musteriTEL" name="musteriTelefon" value="@Model.musteriTelefon">
         </div>
     </div>
     <div class="form-group">
         <label for="musteriPaket">Müşteriye Tanımlanacak İnternet Paketi</label>
-        <select class="form-control" name="musteriPaket" id="musteriPaket">
+        <select required class="form-control" name="musteriPaket" id="musteriPaket">
             @foreach (var paket in db.tblPaketler)
             {
                 <option @(paket.paketId == Model.musteriPaket ? "selected" : "") value="@paket.paketId">@paket.paketAd</option>
@@ -40,7 +40,7 @@
     </div>
     <div class="form-group">
         <label for="musteriADRES">Adres</label>
-        <input type="text" class="form-control" id="musteriADRES" name="musteriAdres" value="@Model.musteriAdres">
+        <input maxlength="80" required type="text" class="form-control" id="musteriADRES" name="musteriAdres" value="@Model.musteriAdres">
     </div>
-    <input type="submit" name="guncelle" value="MÜŞTERİ GÜNCELLE" class="btn btn-success" />
+    <input type="submit" name="guncelle" value="MÜŞTERİ GÜNCELLE" class="btn btn-success formGonder" />
 </form>

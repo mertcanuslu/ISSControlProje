@@ -13,18 +13,18 @@
     <div class="form-group row">
         <label for="paketAd" class="col-sm-2 col-form-label col-form-label-sm">Paket Adı</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control form-control-sm" id="paketAd" name="paketAd" value="@Model.paketAd">
+            <input  maxlength="55" required type="text" class="form-control form-control-sm" id="paketAd" name="paketAd" value="@Model.paketAd">
         </div>
     </div>
     <div class="form-group row">
         <label for="paketFiyat" class="col-sm-2 col-form-label col-form-label-sm">Paket Fiyatı</label>
         <div class="col-sm-10">
-            <input type="tel" class="form-control form-control-sm" id="paketFiyat" name="paketFiyat" value="@Model.paketFiyat">
+            <input maxlength="10" required type="tel" class="form-control form-control-sm" id="paketFiyat" name="paketFiyat" value="@Model.paketFiyat">
         </div>
     </div>
     <div class="form-group">
         <label for="paketAciklamasi">Paket Açıklaması</label> <br />
-        <textarea name="paketAciklamasi" id="paketAciklamasi">@Model.paketAciklamasi</textarea>
+        <textarea required name="paketAciklamasi" id="paketAciklamasi">@Model.paketAciklamasi</textarea>
     </div>
     <input type="submit" name="duzenle" value="PAKET DÜZENLE" class="btn btn-success" />
 </form>
