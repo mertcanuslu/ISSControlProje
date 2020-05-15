@@ -12,13 +12,10 @@ namespace ISSControlProje.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class tblMusteriler
+    public partial class tblYoneticiler
     {
-        public int musteriId { get; set; }
-        public string musteriTc { get; set; }
-        public string musteriAd { get; set; }
-        public string musteriAdres { get; set; }
-        public string musteriTelefon { get; set; }
-        public int musteriPaket { get; set; }
+        public int id { get; set; }
+        public string email { get; set; }
+        public string parola { get; set; }
     }
 }

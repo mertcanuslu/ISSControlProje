@@ -25,9 +25,17 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="#">Anasayfa</a></li>
-                <li><a href="/Paket/Index/">Paketler</a></li>
-                <li><a href="/Musteri/Index/">Müşteriler</a></li>
-                <li><a href="/Tanim/Index/">Tanımlamalar</a></li>
+
+                @if (Session["yonetici"] == null)
+                {
+                    <li><a href="/Admin/Login/">Yönetici Girişi Yap</a></li>
+                }
+                @if (Convert.ToBoolean(Session["yonetici"]) == true)
+                {
+                    <li><a href="/Paket/Index/">Paketler</a></li>
+                    <li><a href="/Musteri/Index/">Müşteriler</a></li>
+                    <li><a href="/Admin/Login/Logout">Çıkış</a></li>
+                }
             </ul>
         </div>
     </nav>

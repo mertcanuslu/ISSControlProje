@@ -35,10 +35,19 @@
           <Property Name="paketFiyat" Type="varchar" MaxLength="10" />
           <Property Name="paketAciklamasi" Type="text" />
         </EntityType>
+        <EntityType Name="tblYoneticiler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="parola" Type="varchar" MaxLength="55" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="iss_webModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPaketler" EntityType="Self.tblPaketler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblYoneticiler" EntityType="Self.tblYoneticiler" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -78,7 +87,16 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" />
           <EntitySet Name="tblPaketler" EntityType="Self.tblPaketler" />
+          <EntitySet Name="tblYoneticiler" EntityType="iss_webModel.tblYoneticiler" />
           </EntityContainer>
+        <EntityType Name="tblYoneticiler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="parola" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -115,6 +133,15 @@
                 <ScalarProperty Name="paketId" ColumnName="paketId" />
                 <ScalarProperty Name="paketAd" ColumnName="paketAd" />
                 <ScalarProperty Name="paketFiyat" ColumnName="paketFiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblYoneticiler">
+            <EntityTypeMapping TypeName="iss_webModel.tblYoneticiler">
+              <MappingFragment StoreEntitySet="tblYoneticiler">
+                <ScalarProperty Name="parola" ColumnName="parola" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

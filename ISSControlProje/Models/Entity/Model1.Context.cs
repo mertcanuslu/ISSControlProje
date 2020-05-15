@@ -28,5 +28,6 @@ namespace ISSControlProje.Models.Entity
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tblMusteriler> tblMusteriler { get; set; }
         public virtual DbSet<tblPaketler> tblPaketler { get; set; }
+        public virtual DbSet<tblYoneticiler> tblYoneticiler { get; set; }
     }
 }

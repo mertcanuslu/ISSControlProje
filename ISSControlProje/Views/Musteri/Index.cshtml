@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_PanelStyle.cshtml";
     iss_webEntities db = new iss_webEntities();
 }
+@if (Convert.ToBoolean(Session["yonetici"]) == false)
+{
+    Response.Redirect("~/Admin/Login");
+}
 <h2>Müşteriler</h2>
 <a href="/Musteri/Ekle/" class="btn btn-success">Yeni Müşteri Ekle</a>
 <table class="table">
@@ -29,7 +33,7 @@
                 <td>@musteri.musteriAd</td>
                 <td>@musteri.musteriAdres</td>
                 <td>@musteri.musteriTelefon</td>
-                <td>@db.tblPaketler.Where(p=>p.paketId==musteri.musteriPaket).FirstOrDefault().paketAd</td>
+                <td>@db.tblPaketler.Where(p => p.paketId == musteri.musteriPaket).FirstOrDefault().paketAd</td>
                 <td>
                     <a href="/Musteri/Sil/@musteri.musteriId" class="btn btn-danger">Müşteriyi Kaldır</a>
                 </td>
