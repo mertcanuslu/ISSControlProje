@@ -59,7 +59,7 @@ namespace ISSControlProje.Controllers
         {
             vt.tblMusteriler.Add(mstr);
             vt.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
